@@ -4,8 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88970a0117c062eed55fa8728fc43833",
+    "content-hash": "d94253d7efcbb8857c6de49c483b0b7f",
     "packages": [
+        {
+            "name": "benbjurstrom/laravel-sitemap-lite",
+            "version": "7.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/benbjurstrom/laravel-sitemap-lite.git",
+                "reference": "29654a8de4a039721b7070b18c745a4d694ea78e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/benbjurstrom/laravel-sitemap-lite/zipball/29654a8de4a039721b7070b18c745a4d694ea78e",
+                "reference": "29654a8de4a039721b7070b18c745a4d694ea78e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "nesbot/carbon": "^2.71|^3.0",
+                "php": "^8.2||^8.3||^8.4",
+                "spatie/laravel-package-tools": "^1.16.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6.6",
+                "orchestra/testbench": "^8.14|^9.0",
+                "pestphp/pest": "^2.24",
+                "spatie/pest-plugin-snapshots": "^2.1",
+                "spatie/phpunit-snapshot-assertions": "^5.1.2",
+                "spatie/temporary-directory": "^2.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Sitemap\\SitemapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Sitemap\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create and generate sitemaps with ease",
+            "homepage": "https://github.com/benbjurstrom/laravel-sitemap-lite",
+            "keywords": [
+                "laravel-sitemap",
+                "laravel-sitemap-lite",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/benbjurstrom/laravel-sitemap-lite/tree/7.3.1"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2025-02-26T17:03:12+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.13.1",
@@ -2512,6 +2583,60 @@
             "time": "2025-05-08T08:14:37+00:00"
         },
         {
+            "name": "phiki/phiki",
+            "version": "v1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phikiphp/phiki.git",
+                "reference": "3174d8cb309bdccc32b7a33500379de76148256b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phikiphp/phiki/zipball/3174d8cb309bdccc32b7a33500379de76148256b",
+                "reference": "3174d8cb309bdccc32b7a33500379de76148256b",
+                "shasum": ""
+            },
+            "require": {
+                "league/commonmark": "^2.5.3",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "illuminate/support": "^11.30",
+                "laravel/pint": "^1.18.1",
+                "pestphp/pest": "^3.5.1",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^2.0",
+                "symfony/var-dumper": "^7.1.6"
+            },
+            "bin": [
+                "bin/phiki"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phiki\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Chandler",
+                    "email": "support@ryangjchandler.co.uk",
+                    "homepage": "https://ryangjchandler.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Syntax highlighting using TextMate grammars in PHP.",
+            "support": {
+                "issues": "https://github.com/phikiphp/phiki/issues",
+                "source": "https://github.com/phikiphp/phiki/tree/v1.1.6"
+            },
+            "time": "2025-06-06T20:18:29+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.9.3",
             "source": {
@@ -2585,6 +2710,96 @@
                 }
             ],
             "time": "2024-07-20T21:41:07+00:00"
+        },
+        {
+            "name": "prezet/prezet",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prezet/prezet.git",
+                "reference": "02bf31f6c870a1cb3257df15e93c670f82b5449f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prezet/prezet/zipball/02bf31f6c870a1cb3257df15e93c670f82b5449f",
+                "reference": "02bf31f6c870a1cb3257df15e93c670f82b5449f",
+                "shasum": ""
+            },
+            "require": {
+                "benbjurstrom/laravel-sitemap-lite": "^7.3.1",
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "illuminate/contracts": "^10.0||^11.0||^12.0",
+                "league/commonmark": "^2.6.1",
+                "phiki/phiki": "^1.1",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.92.3",
+                "symfony/yaml": "^6.2|^7.2.5",
+                "wendelladriel/laravel-validated-dto": "^4.1"
+            },
+            "require-dev": {
+                "larastan/larastan": "3.3.1",
+                "laravel/pint": "^1.22",
+                "nunomaduro/collision": "^8.8",
+                "orchestra/testbench": "^9.13",
+                "pestphp/pest": "^3.8.1",
+                "pestphp/pest-plugin-arch": "^3.1",
+                "pestphp/pest-plugin-laravel": "^3.1",
+                "phpstan/extension-installer": "1.4.3",
+                "phpstan/phpdoc-parser": "2.1.0",
+                "phpstan/phpstan": "2.1.11",
+                "phpstan/phpstan-deprecation-rules": "2.0.1",
+                "phpstan/phpstan-phpunit": "2.0.6",
+                "spatie/browsershot": ">=5.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Prezet": "Prezet\\Prezet\\Facades\\Prezet"
+                    },
+                    "providers": [
+                        "Prezet\\Prezet\\PrezetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Prezet\\Prezet\\": "src/",
+                    "Prezet\\Prezet\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Bjurstrom",
+                    "email": "benbjurstrom@users.noreply.github.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Prezet: Markdown Blogging for Laravel",
+            "homepage": "https://github.com/prezet/prezet",
+            "keywords": [
+                "laravel",
+                "prezet"
+            ],
+            "support": {
+                "issues": "https://github.com/prezet/prezet/issues",
+                "source": "https://github.com/prezet/prezet/tree/v1.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/benbjurstrom",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-07-11T14:35:35+00:00"
         },
         {
             "name": "psr/clock",
@@ -3273,6 +3488,67 @@
                 "source": "https://github.com/ramsey/uuid/tree/4.9.0"
             },
             "time": "2025-06-25T14:20:11+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.92.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "f09a799850b1ed765103a4f0b4355006360c49a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/f09a799850b1ed765103a4f0b4355006360c49a5",
+                "reference": "f09a799850b1ed765103a4f0b4355006360c49a5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0|^12.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0|^9.0|^10.0",
+                "pestphp/pest": "^1.23|^2.1|^3.1",
+                "phpunit/php-code-coverage": "^9.0|^10.0|^11.0",
+                "phpunit/phpunit": "^9.5.24|^10.5|^11.5",
+                "spatie/pest-plugin-test-time": "^1.1|^2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.92.7"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-07-17T15:46:43+00:00"
         },
         {
             "name": "symfony/clock",
@@ -5705,6 +5981,82 @@
             "time": "2025-07-29T20:02:46+00:00"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v7.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "b8d7d868da9eb0919e99c8830431ea087d6aae30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/b8d7d868da9eb0919e99c8830431ea087d6aae30",
+                "reference": "b8d7d868da9eb0919e99c8830431ea087d6aae30",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/deprecation-contracts": "^2.5|^3.0",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<6.4"
+            },
+            "require-dev": {
+                "symfony/console": "^6.4|^7.0"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v7.3.2"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-07-10T08:47:49+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "v2.3.0",
             "source": {
@@ -5974,6 +6326,81 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wendelladriel/laravel-validated-dto",
+            "version": "v4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WendellAdriel/laravel-validated-dto.git",
+                "reference": "3d3fa936c8c72d62af103f1956cd2f54e5736daa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WendellAdriel/laravel-validated-dto/zipball/3d3fa936c8c72d62af103f1956cd2f54e5736daa",
+                "reference": "3d3fa936c8c72d62af103f1956cd2f54e5736daa",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^11.0|^12.0",
+                "illuminate/database": "^11.0|^12.0",
+                "illuminate/http": "^11.0|^12.0",
+                "illuminate/support": "^11.0|^12.0",
+                "illuminate/validation": "^11.0|^12.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.21",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^2.0|^3.0",
+                "pestphp/pest-plugin-faker": "^2.0|^3.0",
+                "spatie/typescript-transformer": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WendellAdriel\\ValidatedDTO\\Providers\\ValidatedDTOServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WendellAdriel\\ValidatedDTO\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wendell Adriel",
+                    "email": "wendelladriel.ti@gmail.com"
+                }
+            ],
+            "description": "Data Transfer Objects with validation for Laravel applications",
+            "keywords": [
+                "Data Transfer Object",
+                "dto",
+                "laravel",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/WendellAdriel/laravel-validated-dto/issues",
+                "source": "https://github.com/WendellAdriel/laravel-validated-dto"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/wendelladriel",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/WendellAdriel",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-06-19T14:04:12+00:00"
         }
     ],
     "packages-dev": [
@@ -8202,82 +8629,6 @@
                 }
             ],
             "time": "2024-10-20T05:08:20+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v7.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "b8d7d868da9eb0919e99c8830431ea087d6aae30"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/b8d7d868da9eb0919e99c8830431ea087d6aae30",
-                "reference": "b8d7d868da9eb0919e99c8830431ea087d6aae30",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/deprecation-contracts": "^2.5|^3.0",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<6.4"
-            },
-            "require-dev": {
-                "symfony/console": "^6.4|^7.0"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.3.2"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-07-10T08:47:49+00:00"
         },
         {
             "name": "theseer/tokenizer",

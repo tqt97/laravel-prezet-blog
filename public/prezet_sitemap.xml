@@ -1,73 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://localhost/prezet/testing</loc>
+        <loc>http://localhost/testing</loc>
+        <lastmod>2025-08-19T13:34:04+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/testing/laravel-database-testing</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/testing/laravel-database-testing</loc>
+        <loc>http://localhost/testing/laravel-fakes</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/testing/laravel-fakes</loc>
+        <loc>http://localhost/testing/laravel-mocking</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/testing/laravel-mocking</loc>
+        <loc>http://localhost/testing/laravel-testing</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/testing/laravel-testing</loc>
+        <loc>http://localhost/laravel-vite</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-vite</loc>
+        <loc>http://localhost/laravel-validation</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-validation</loc>
+        <loc>http://localhost/laravel-queues</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-queues</loc>
+        <loc>http://localhost/laravel-routing</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-routing</loc>
+        <loc>http://localhost/laravel-artisan</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-artisan</loc>
+        <loc>http://localhost/laravel-middleware</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-middleware</loc>
+        <loc>http://localhost/eloquent-basics</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/eloquent-basics</loc>
+        <loc>http://localhost/blade-templating</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/blade-templating</loc>
+        <loc>http://localhost/laravel-events</loc>
         <lastmod>2025-08-18T14:42:48+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/prezet/laravel-events</loc>
-        <lastmod>2025-08-18T14:42:48+00:00</lastmod>
+        <loc>http://localhost/laravel</loc>
+        <lastmod>2025-08-19T14:13:56+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/laravel/new-log</loc>
+        <lastmod>2025-08-19T14:20:09+00:00</lastmod>
 
             </url>
 </urlset>

@@ -136,23 +136,30 @@ return [
     'authors' => [
         'bob' => [
             '@type' => 'Person',
-            'name' => 'Bob Author',
+            'name' => 'Bob',
             'url' => 'https://prezet.com/authors/prezet',
             'image' => '/prezet/img/bob.webp',
             'bio' => 'Bob is a Laravel developer focusing on frontend tooling and testing practices. He enjoys exploring Blade, Vite, and ensuring application stability through robust testing.',
         ],
         'jane' => [
             '@type' => 'Person',
-            'name' => 'Jane Author',
+            'name' => 'Jane',
             'url' => 'https://prezet.com/authors/prezet',
             'image' => '/prezet/img/jane.webp',
             'bio' => 'Jane is a backend developer specializing in Laravel\'s architecture and database interactions. She frequently writes about Eloquent, routing, queues, and application structure.',
         ],
         'prezet' => [
             '@type' => 'Person',
-            'name' => 'Prezet Author',
+            'name' => 'Prezet',
             'url' => 'https://prezet.com',
             'image' => 'https://prezet.com/favicon.svg',
+        ],
+        'tuantq' => [
+            '@type' => 'Person',
+            'name' => 'Tuantq',
+            'url' => 'https://github.com/tqt97',
+            'image' => '/prezet/img/tuantq.webp',
+            'bio' => 'TuanTQ is a backend developer specializing in Laravel\'s architecture and database interactions. He frequently writes about Eloquent, routing, queues, and application structure.',
         ],
     ],
 

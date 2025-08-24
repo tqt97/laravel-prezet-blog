@@ -24,7 +24,7 @@
 
         <div class="mb-6 justify-between sm:flex md:mb-8">
             <p class="text-lg leading-7 text-zinc-500 dark:text-zinc-400">
-                A blog created with Laravel and Tailwind.css using Markdown.
+                {{ $articles->count() }} posts
             </p>
             <div class="mt-4 block sm:mt-0">
                 @if ($currentTag)

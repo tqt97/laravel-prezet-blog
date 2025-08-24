@@ -44,6 +44,12 @@ class MakeContent extends Command
         $slug = Str::slug($title);
         $filename = $slug.'.md';
 
+        // excerpt required
+        $excerpt = $this->ask('Enter excerpt (leave empty to use title)');
+        if (empty($excerpt)) {
+            $excerpt = $title;
+        }
+
         // create directory if not exists
         if (! is_dir(base_path($path))) {
             mkdir(base_path($path), 0755, true);
@@ -84,7 +90,7 @@ class MakeContent extends Command
         // front matter data
         $frontMatter = [
             'title' => $title,
-            'excerpt' => '',
+            'excerpt' => $excerpt,
             'category' => $category,
             'image' => null,
             'draft' => $draft,
@@ -126,5 +132,6 @@ class MakeContent extends Command
         file_put_contents($fullPath, $content);
 
         $this->info("Content created: $fullPath");
+        $this->call('prezet:index');
     }
 }

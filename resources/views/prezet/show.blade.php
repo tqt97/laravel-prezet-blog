@@ -16,8 +16,8 @@
 
     @push('jsonld')
         <script type="application/ld+json">
-                    {!! $linkedData !!}
-                </script>
+                        {!! $linkedData !!}
+                    </script>
     @endpush
 
     <x-prezet.alpine>
@@ -26,7 +26,7 @@
                 <li class="flex items-center dark:text-white">
                     @if($document->category)
                         <a href="{{ route('prezet.show', ['slug' => strtolower($document->category)]) }}">
-                            {{ $document->category }}
+                            {{ Str::title(str_replace('-', ' ', $document->category))}}
                         </a>
                     @endif
                 </li>

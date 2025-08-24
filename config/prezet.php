@@ -78,8 +78,8 @@ return [
                 'noreferrer' => 'external',
             ],
             'phiki' => [
-                'theme' => \Phiki\Theme\Theme::NightOwl,
-                'with_wrapper' => false,
+                'theme' => \Phiki\Theme\Theme::OneDarkPro,
+                'with_wrapper' => true,
                 'with_gutter' => true,
             ],
         ],

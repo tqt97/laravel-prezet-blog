@@ -4,7 +4,7 @@
 ])
 
 <article
-    class="rounded-lg bg-white shadow-md hover:shadow-lg p-6 text-zinc-900 ring-1 ring-zinc-500/10 transition-colors ring-inset hover:border-zinc-200 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:border-zinc-700"
+    class="rounded-lg bg-white shadow hover:shadow-lg p-6 text-zinc-900 ring-1 ring-zinc-500/10 transition-colors ring-inset hover:border-zinc-200 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:border-zinc-700"
 >
     <div class="space-y-3">
         <div class="text-muted-foreground text-sm">
@@ -13,7 +13,7 @@
                     href="{{ route('prezet.show', ['slug' => strtolower($article->category)]) }}"
                     class="font-medium text-zinc-900 transition-all hover:opacity-75 dark:text-white"
                 >
-                    {{ $article->category }}
+                    {{ Str::title(str_replace('-', ' ', $article->category))}}
                 </a>
             @endif
         </div>
@@ -21,13 +21,13 @@
         <h2
             class="text-xl leading-tight font-semibold transition-colors duration-200 hover:opacity-75 dark:text-white"
         >
-            <a href="{{ route('prezet.show', $article->slug) }}">
+            <a href="{{ route('prezet.show', $article->slug) }}" class="hover:text-primary-500">
                 {{ $article->frontmatter->title }}
             </a>
         </h2>
 
-        <p class="text-muted-foreground dark:text-zinc-400">
-            {{ $article->frontmatter->excerpt }}
+        <p class="text-muted-foreground dark:text-zinc-400 line-clamp-2 md:line-clamp-3">
+            {{  Str::words($article->frontmatter->excerpt) }}
         </p>
 
         <div

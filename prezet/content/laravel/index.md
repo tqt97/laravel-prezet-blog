@@ -4,7 +4,7 @@ date: 2025-01-10
 category: Laravel
 excerpt: Out of the box, Laravel has elegant solutions for the common features needed by all modern web applications. Our first-party packages offer opinionated solutions for specific problems so you don't need to reinvent the wheel.
 author: bob
-image: /prezet/img/images/laravel.jpg
+image: /prezet/img/laravel.jpg
 slug: laravel
 contentType: category
 ---

@@ -10,13 +10,14 @@
 
 <x-prezet.template>
     @seo([
-        'title' => 'Prezet: Markdown Blogging for Laravel',
+        'title' => 'Tuantq | A blog created with Laravel and Tailwind.css using Markdown.',
         'description' =>
             'Transform your markdown files into SEO-friendly blogs, articles, and documentation!',
         'url' => route('prezet.index'),
     ])
 
-    <div class="mx-auto max-w-4xl">
+
+    <section class="relative w-full max-w-5xl mx-auto px-4 m-4">
         <h1 class="text-3xl !leading-snug font-bold sm:text-4xl lg:text-5xl lg:!leading-tight dark:text-white">
             All Posts
         </h1>
@@ -85,26 +86,59 @@
                 @endif
             </div>
         </div>
+        <div class="grid md:grid-cols-12 gap-6">
+            <main class="md:col-span-9 col-span-12">
+                <div class="mx-auto max-w-5xl">
+                    @foreach ($postsByYear as $year => $posts)
+                        <section class="mb-12">
+                            <div class="relative">
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="w-full border-t border-zinc-200 dark:border-zinc-800"></div>
+                                </div>
+                                <div class="relative flex justify-start">
+                                    <span
+                                        class="bg-white pr-4 text-xl font-bold text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
+                                        {{ $year }}
+                                    </span>
+                                </div>
+                            </div>
 
-        @foreach ($postsByYear as $year => $posts)
-            <section class="mb-12">
-                <div class="relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-zinc-200 dark:border-zinc-800"></div>
-                    </div>
-                    <div class="relative flex justify-start">
-                        <span class="bg-white pr-4 text-xl font-bold text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
-                            {{ $year }}
-                        </span>
-                    </div>
-                </div>
-
-                <div class="mt-8 space-y-12 text-zinc-900 dark:text-zinc-100">
-                    @foreach ($posts as $post)
-                        <x-prezet.article :article="$post" :author="config('prezet.authors.' . $post->frontmatter->author)" />
+                            <div class="mt-8 space-y-12 text-zinc-900 dark:text-zinc-100">
+                                @foreach ($posts as $post)
+                                    <x-prezet.article :article="$post" :author="config('prezet.authors.' . $post->frontmatter->author)" />
+                                @endforeach
+                            </div>
+                        </section>
                     @endforeach
                 </div>
-            </section>
-        @endforeach
-    </div>
+            </main>
+            <aside class="md:col-span-3 md:block hidden  min-h-screen">
+                <div class="sticky top-20">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-zinc-200 dark:border-zinc-800"></div>
+                        </div>
+                        <div class="relative flex justify-start">
+                            <h3
+                                class="bg-white pr-4 text-xl font-bold text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
+                                Categories
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="relative my-2">
+                        <ul>
+                            <li>
+                                @foreach ($categories as $category)
+                                    <a href="{{ route('prezet.show', ['slug' => Str::slug($category)]) }}"
+                                        class="block text-sm py-1 pr-4 pl-3 text-zinc-900 dark:text-zinc-100 hover:text-primary-500">
+                                        {{ Str::title(str_replace('-', ' ', $category))}}
+                                    </a>
+                                @endforeach
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
 </x-prezet.template>

@@ -19,6 +19,9 @@ class IndexController
             ->where('content_type', 'article')
             ->where('draft', false);
 
+        // Get unique categories and not null
+        $categories = $query->get()->pluck('category')->unique()->filter();
+
         if ($category) {
             $query->where('category', $category);
         }
@@ -37,7 +40,6 @@ class IndexController
         $currentAuthor = config('prezet.authors.'.$author);
 
         $docs = $query->orderBy('created_at', 'desc')->get();
-
         $docsData = $docs->map(fn (Document $doc) => app(DocumentData::class)::fromModel($doc));
 
         // Group posts by year
@@ -52,6 +54,7 @@ class IndexController
             'currentCategory' => $request->query('category'),
             'currentAuthor' => $currentAuthor,
             'postsByYear' => $postsByYear,
+            'categories' => $categories,
         ]);
     }
 }

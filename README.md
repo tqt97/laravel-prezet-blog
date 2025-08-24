@@ -1,4 +1,4 @@
-# 🚀 Laravel Markdown Blog  
+# 🚀 Laravel Markdown Blog
 
 A **lightweight yet powerful blog system** built with **Laravel** and **Markdown**.
 Easily manage your content using Markdown files with **YAML front matter metadata** for titles, categories, tags, authors, and more.
@@ -69,7 +69,7 @@ php artisan make:content "Hello World"
 
 This will create:
 
-```
+```md
 prezet/content/hello-world.md
 ```
 
@@ -77,13 +77,13 @@ prezet/content/hello-world.md
 
 ### 2️⃣. Options
 
-- **Custom path**  
+- **Custom path**
 
 ```bash
 php artisan make:content "Hello World" --path=prezet/content/blog
 ```
 
-- **Category**  
+- **Category**
 
 ```bash
 php artisan make:content "Hello World" --category=Laravel
@@ -122,7 +122,7 @@ This generates a file:
 ```yaml
 ---
 title: A PHP framework with a robust ecosystem
-excerpt: 
+excerpt:
 category: Laravel
 image: null
 draft: false
@@ -135,6 +135,52 @@ tags: ['laravel','php']
 
 Content go here!
 ```
+
+---
+
+## 🔄 SQLite Index
+
+Project uses an SQLite index file to more efficiently query information about your markdown content. This index is crucial for features like pagination, sorting, and filtering of your blog posts or documentation pages.
+
+### Managing the Index
+
+```bash
+php artisan prezet:index
+```
+
+You should run this command whenever you:
+
+- Add a new markdown file
+- Change a markdown file's slug
+- Modify frontmatter and want to see those changes reflected on index pages
+
+>Note that changes to the main content of your markdown files don't require updating the index, as this content is read directly from the file when displaying a single post.
+
+```bash
+php artisan prezet:index --fresh
+```
+
+`--fresh` option that will create a new sqlite database and run the prezet migrations before inserting your markdown data. You should run this command whenever you:
+
+- Update to a new version of Prezet
+- Are creating an index in a CI/CD pipeline
+- Deploy your application to an environment where the index sqlite file is not already present
+
+### Automatically Updating the Index
+
+```bash
+npm run dev
+```
+
+### Sitemap Generation
+
+The sitemap is automatically generated whenever you run the index update command:
+
+```bash
+php artisan prezet:index
+```
+
+This command not only updates the content index but also creates or updates the **prezet_sitemap.xml** file in your Laravel project's public directory. This integration ensures that your sitemap always reflects the current state of your content.
 
 ---
 

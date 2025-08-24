@@ -100,7 +100,11 @@ return [
     'image' => [
 
         'widths' => [
-            480, 640, 768, 960, 1536,
+            480,
+            640,
+            768,
+            960,
+            1536,
         ],
 
         'sizes' => '92vw, (max-width: 1024px) 92vw, 768px',
@@ -171,4 +175,19 @@ return [
         'logo' => 'https://prezet.com/favicon.svg',
         'image' => 'https://prezet.com/ogimage.png',
     ],
+
+    /*
+   |--------------------------------------------------------------------------
+   | Prezet Index Schedule
+   |--------------------------------------------------------------------------
+   | You can configure the schedule for running the "prezet:index" command.
+   | Supported values are Laravel scheduler methods such as:
+   | everyMinute, everyFiveMinutes, hourly, daily, etc.
+   |
+   | Example in .env:
+   | PREZET_INDEX_SCHEDULE=everyFiveMinutes
+   |
+   */
+
+    'index_schedule' => env('PREZET_INDEX_SCHEDULE', 'everyThirtyMinutes'),
 ];

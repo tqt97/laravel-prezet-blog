@@ -19,8 +19,15 @@ class IndexController
             ->where('content_type', 'article')
             ->where('draft', false);
 
-        // Get unique categories and not null
-        $categories = $query->get()->pluck('category')->unique()->filter();
+        // Get category counts (only non-null categories) from the base query (pre-filters)
+        $categoryCounts = (clone $query)
+            ->selectRaw('category, COUNT(*) as total')
+            ->whereNotNull('category')
+            ->groupBy('category')
+            ->pluck('total', 'category');
+
+        // Keep unique category list for compatibility
+        $categories = $categoryCounts->keys();
 
         if ($category) {
             $query->where('category', $category);
@@ -55,6 +62,7 @@ class IndexController
             'currentAuthor' => $currentAuthor,
             'postsByYear' => $postsByYear,
             'categories' => $categories,
+            'categoryCounts' => $categoryCounts,
         ]);
     }
 }

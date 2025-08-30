@@ -70,7 +70,7 @@ return [
                 'aria_hidden' => false,
             ],
             'external_link' => [
-                'internal_hosts' => 'www.example.com', // Don't forget to set this!
+                'internal_hosts' => env('APP_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)), // Set based on APP_URL
                 'open_in_new_window' => true,
                 'html_class' => 'external-link',
                 'nofollow' => 'external',

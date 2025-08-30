@@ -19,7 +19,8 @@
     @stack('jsonld')
 
     <script>
-        ; (function () {
+        ;
+        (function() {
             const stored = localStorage.getItem('theme')
             const prefersDark = window.matchMedia(
                 '(prefers-color-scheme: dark)'
@@ -41,6 +42,7 @@
             {{ $slot }}
         </div>
     </div>
+    <x-scroll-to-top />
 </body>
 
 </html>

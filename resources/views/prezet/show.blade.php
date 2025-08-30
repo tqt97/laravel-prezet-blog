@@ -24,17 +24,19 @@
         <div class="grid grid-cols-12 gap-8">
             <div class="col-span-12 xl:col-span-10 xl:col-start-2 2xl:col-span-6 2xl:col-start-4">
                 <li class="flex items-center dark:text-white">
-                    @if($document->category)
+                    @if ($document->category)
                         <a href="{{ route('prezet.show', ['slug' => strtolower($document->category)]) }}">
-                            {{ Str::title(str_replace('-', ' ', $document->category))}}
+                            {{ Str::title(str_replace('-', ' ', $document->category)) }}
                         </a>
                     @endif
                 </li>
 
                 <h1
                     class="mb-6 text-3xl !leading-snug font-bold sm:text-4xl md:mb-8 lg:text-5xl lg:!leading-tight dark:text-white">
-                    {{ $document->frontmatter->title }}
+                    {{ $document->title ?? $document->frontmatter->title }}
                 </h1>
+
+                <x-prezet.language-switcher :document-key="(string) $document->id" :current-language="app()->getLocale()" />
                 <ul class="flex flex-wrap items-center gap-3 font-medium">
                     <li class="w-full sm:w-auto dark:text-white">
                         <a href="#author" class="group flex items-center gap-x-2">
@@ -51,7 +53,7 @@
                     </li>
                     <li class="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
                         <x-prezet.icon-calendar class="size-5" />
-                        <span>Dec 05, 2023</span>
+                        <span>{{ $document->createdAt->format('M d, Y') }}</span>
                     </li>
                 </ul>
             </div>
@@ -62,8 +64,9 @@
                     class="h-auto max-h-[500px] w-full sm:rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800" />
             </div>
             --}}
-            <div class="col-span-12 lg:col-span-12 xl:col-span-8 xl:col-start-10 2xl:col-span-8 2xl:col-start-4">
-                <img src="/prezet/img/laravel.jpg" alt="bob" width="1120" height="595" loading="lazy" decoding="async"
+            <div class="-mx-8 sm:mx-0 col-span-12 xl:col-start-2 xl:col-span-10 lg:my-4">
+                <img src="{{ $document->frontmatter->image ?? '/prezet/img/laravel.jpg' }}" alt="bob"
+                    width="1120" height="595" loading="lazy" decoding="async"
                     class="h-auto max-h-[500px] w-full sm:rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800" />
             </div>
 
@@ -77,13 +80,13 @@
                     <nav aria-labelledby="on-this-page-title">
                         <p id="on-this-page-title"
                             class="font-display text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                            On this page
+                            {{ __('on_this_page') }}
                         </p>
                         <ol role="list" class="mt-4 space-y-3 text-sm">
                             @foreach ($headings as $h2)
                                 <li>
                                     <a href="#{{ $h2['id'] }}"
-                                        :class="{'!text-primary-500 !dark:text-primary-400 !hover:text-primary-500': activeHeading === '{{ $h2['id'] }}'}"
+                                        :class="{ '!text-primary-500 !dark:text-primary-400 !hover:text-primary-500': activeHeading === '{{ $h2['id'] }}' }"
                                         x-on:click.prevent="scrollToHeading('{{ $h2['id'] }}')"
                                         class="text-zinc-700 transition-colors dark:text-zinc-300">
                                         {{ $h2['title'] }}
@@ -94,7 +97,7 @@
                                             @foreach ($h2['children'] as $h3)
                                                 <li>
                                                     <a href="#{{ $h3['id'] }}"
-                                                        :class="{'!text-primary-500 !dark:text-primary-400 !hover:text-primary-500': activeHeading === '{{ $h3['id'] }}'}"
+                                                        :class="{ '!text-primary-500 !dark:text-primary-400 !hover:text-primary-500': activeHeading === '{{ $h3['id'] }}' }"
                                                         x-on:click.prevent="scrollToHeading('{{ $h3['id'] }}')"
                                                         class="text-zinc-700 transition-colors dark:text-zinc-300">
                                                         {{ $h3['title'] }}
@@ -155,8 +158,8 @@
                         <a class="hover:text-primary dark:hover:text-primary-dark mt-3 flex w-fit items-center gap-x-1 text-sm font-medium underline md:text-base dark:text-zinc-200"
                             href="{{ route('prezet.index', ['author' => strtolower($document->frontmatter->author)]) }}">
                             More posts from {{ $author['name'] }}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="size-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                             </svg>

@@ -8,7 +8,7 @@
             </div>
             <div class="relative flex justify-start">
                 <h3 class="bg-white pr-4 text-xl font-bold text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
-                    Categories
+                    {{ __('Categories') }}
                 </h3>
             </div>
         </div>

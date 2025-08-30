@@ -2,7 +2,8 @@
     <div class="grid grid-cols-12">
         <div class="col-span-12 flex flex-none flex-wrap items-center justify-between xl:col-span-10 xl:col-start-2">
             <div class="relative flex grow basis-0 items-center">
-                <button aria-label="Menu" class="mr-4 rounded-lg p-1.5 hover:bg-gray-100 active:bg-gray-200 lg:hidden"
+                <button aria-label="{{ __('Menu') }}"
+                    class="mr-4 rounded-lg p-1.5 hover:bg-gray-100 active:bg-gray-200 lg:hidden"
                     x-on:click="showSidebar = ! showSidebar">
                     <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -13,7 +14,8 @@
                     </svg>
                 </button>
 
-                <a aria-label="Home" href="{{ route('prezet.index') }}" class="block flex items-center space-x-2">
+                <a aria-label="{{ __('Home') }}" href="{{ route('prezet.index') }}"
+                    class="block flex items-center space-x-2">
                     <x-prezet.logo />
                     <span class="text-2xl font-bold text-gray-900 dark:text-white">
                         {{ strtoupper(config('app.name')) }}
@@ -22,6 +24,65 @@
             </div>
             <div class="relative flex basis-0 items-center justify-end gap-3 sm:gap-8 md:grow lg:gap-6">
                 <x-prezet.search />
+
+                {{-- Language Switcher --}}
+                <div class="relative" x-data="{ open: false }">
+                    <button @click="open = !open"
+                        class="flex items-center cursor-pointer space-x-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3a48.474 48.474 0 016 0v2.25M9 5.25c0 1.12.038 2.233.114 3.334M9 5.25V3a48.474 48.474 0 016 0v2.25" />
+                        </svg>
+                        <span>{{ strtoupper(app()->getLocale()) }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-3 h-3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+
+                    <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-100"
+                        x-transition:enter-start="transform opacity-0 scale-95"
+                        x-transition:enter-end="transform opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-75"
+                        x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95"
+                        class="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50 border border-gray-200 dark:border-gray-700">
+
+                        @php
+                            $currentSlug = request()->route('slug');
+                            $translationService = app(\App\Services\TranslationService::class);
+                            $availableLanguages = $currentSlug
+                                ? $translationService->getAvailableLanguages(
+                                    (string) app(\Prezet\Prezet\Models\Document::class)
+                                        ->where('slug', $currentSlug)
+                                        ->first()?->id,
+                                )
+                                : [];
+                        @endphp
+
+                        {{-- English --}}
+                        <a href="{{ $currentSlug ? route('prezet.show', ['slug' => $currentSlug]) : request()->url() }}"
+                            class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ app()->getLocale() === 'en' ? 'bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300' : '' }}">
+                            🇺🇸 {{ __('English') }}
+                        </a>
+
+                        {{-- Vietnamese --}}
+                        <a href="#"
+                            onclick="switchLanguage('vi', '{{ $currentSlug }}', {{ json_encode($availableLanguages) }})"
+                            class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ app()->getLocale() === 'vi' ? 'bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300' : '' }}">
+                            🇻🇳 {{ __('Vietnamese') }}
+                        </a>
+
+                        {{-- French --}}
+                        <a href="#"
+                            onclick="switchLanguage('fr', '{{ $currentSlug }}', {{ json_encode($availableLanguages) }})"
+                            class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ app()->getLocale() === 'fr' ? 'bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300' : '' }}">
+                            🇫🇷 {{ __('French') }}
+                        </a>
+                    </div>
+                </div>
+
                 <a href="/feed" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor"
@@ -39,10 +100,12 @@
                     </svg>
                 </a>
 
-                <button onclick="
+                <button
+                    onclick="
                         const isDark = document.documentElement.classList.toggle('dark');
                         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    " class="group cursor-pointer">
+                    "
+                    class="group cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         class="h-6 w-6 block dark:hidden fill-gray-500 text-gray-500 group-hover:fill-gray-900">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75
@@ -66,3 +129,17 @@
         </div>
     </div>
 </header>
+
+<script>
+    function switchLanguage(lang, currentSlug, availableLanguages) {
+        // If we're on a post page and translation exists, go to translated version
+        if (currentSlug && availableLanguages.includes(lang)) {
+            window.location.href = `/${currentSlug}/translate/${lang}`;
+        } else {
+            // Otherwise, just change the UI language
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.location.href = url.toString();
+        }
+    }
+</script>

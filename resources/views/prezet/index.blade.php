@@ -18,12 +18,12 @@
 
     <section class="relative w-full max-w-5xl mx-auto px-4 m-4">
         <h1 class="text-3xl !leading-snug font-bold sm:text-4xl lg:text-5xl lg:!leading-tight dark:text-white">
-            All Posts
+            {{ __('All Posts') }}
         </h1>
 
         <div class="mb-6 justify-between sm:flex md:mb-8">
             <p class="text-lg leading-7 text-zinc-500 dark:text-zinc-400">
-                {{ $articles->count() }} posts
+                {{ $articles->count() }} {{ __('posts') }}
             </p>
             <div class="mt-4 block sm:mt-0">
                 @if ($currentTag)
@@ -34,7 +34,7 @@
                         {{ strtoupper($currentTag) }}
                         <a href="{{ route('prezet.index', array_filter(request()->except('tag'))) }}"
                             class="group relative -mr-1 h-3.5 w-3.5 rounded-xs hover:bg-zinc-500/20 dark:hover:bg-zinc-600/30">
-                            <span class="sr-only">Remove</span>
+                            <span class="sr-only">{{ __('Remove') }}</span>
                             <svg viewBox="0 0 14 14"
                                 class="h-3.5 w-3.5 stroke-zinc-600/50 group-hover:stroke-zinc-600/75 dark:stroke-zinc-400/50 dark:group-hover:stroke-zinc-400/75">
                                 <path d="M4 4l6 6m0-6l-6 6" />
@@ -56,7 +56,7 @@
                         {{ $currentCategory }}
                         <a href="{{ route('prezet.index', array_filter(request()->except('category'))) }}"
                             class="group relative -mr-1 h-3.5 w-3.5 rounded-xs hover:bg-zinc-500/20 dark:hover:bg-zinc-600/30">
-                            <span class="sr-only">Remove</span>
+                            <span class="sr-only">{{ __('Remove') }}</span>
                             <svg viewBox="0 0 14 14"
                                 class="h-3.5 w-3.5 stroke-zinc-600/50 group-hover:stroke-zinc-600/75 dark:stroke-zinc-400/50 dark:group-hover:stroke-zinc-400/75">
                                 <path d="M4 4l6 6m0-6l-6 6" />
@@ -74,7 +74,7 @@
                         {{ $currentAuthor['name'] }}
                         <a href="{{ route('prezet.index', array_filter(request()->except('author'))) }}"
                             class="group relative -mr-1 h-3.5 w-3.5 rounded-xs hover:bg-zinc-500/20 dark:hover:bg-zinc-600/30">
-                            <span class="sr-only">Remove</span>
+                            <span class="sr-only">{{ __('Remove') }}</span>
                             <svg viewBox="0 0 14 14"
                                 class="h-3.5 w-3.5 stroke-zinc-600/50 group-hover:stroke-zinc-600/75 dark:stroke-zinc-400/50 dark:group-hover:stroke-zinc-400/75">
                                 <path d="M4 4l6 6m0-6l-6 6" />

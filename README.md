@@ -138,6 +138,18 @@ Content go here!
 
 ---
 
+## 🌍 Translations
+
+This project includes a built-in translation management system, allowing you to provide multilingual versions of your content.
+
+### How It Works
+
+- When you visit a post, you can append `/translate` to the URL to view the translation creation page (e.g., `http://your-site.com/my-first-post/translate`).
+- Submitted translations are stored in the main application database.
+- If a published translation exists for a given language, visiting the post with the correct locale will show the translated version.
+
+---
+
 ## 🔄 SQLite Index
 
 Project uses an SQLite index file to more efficiently query information about your markdown content. This index is crucial for features like pagination, sorting, and filtering of your blog posts or documentation pages.
@@ -168,9 +180,23 @@ php artisan prezet:index --fresh
 
 ### Automatically Updating the Index
 
+The index is updated automatically in your local development environment when you run:
+
 ```bash
 npm run dev
 ```
+
+For production, you should configure a cron job to run the Laravel scheduler, which will periodically update the index for you.
+
+#### Production Scheduler
+
+To automate indexing in production, add a single cron entry to your server. This job will run the Laravel scheduler every minute.
+
+```bash
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+The scheduler will then execute the `prezet:index` command based on the schedule defined in your `.env` file (e.g., `PREZET_INDEX_SCHEDULE=everyThirtyMinutes`).
 
 ### Sitemap Generation
 

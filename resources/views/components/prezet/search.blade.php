@@ -180,7 +180,7 @@
     x-on:keydown.meta.k.prevent.document="openCommandPalette()">
     <!-- Toggle Button -->
     <button x-ref="elToggleButton" x-on:click="openCommandPalette()" type="button"
-        class="group inline-flex items-center justify-center gap-2 rounded-lg border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-sm focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-64 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 cursor-pointer">
+        class="group inline-flex items-center justify-center gap-2 rounded-lg border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-sm focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-48 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" data-slot="icon"
             class="hi-mini hi-magnifying-glass inline-block size-6 opacity-60 group-hover:text-zinc-600 group-hover:opacity-100 lg:size-5 dark:group-hover:text-zinc-400">
             <path fill-rule="evenodd"
@@ -235,8 +235,8 @@
                         aria-autocomplete="list" />
                     <svg x-show="loading" class="inline-block size-6 animate-spin opacity-50"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                            stroke-width="4"></circle>
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
                         <path class="opacity-75" fill="currentColor"
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
                         </path>
@@ -256,8 +256,7 @@
                                 option.id,
                             ),
                             'text-zinc-600 dark:text-zinc-300': !isHighlighted(option.id),
-                        }"
-                        x-bind:data-selected="isHighlighted(option.id)" x-bind:data-id="option.id"
+                        }" x-bind:data-selected="isHighlighted(option.id)" x-bind:data-id="option.id"
                         x-bind:data-label="option.text" x-bind:aria-selected="isHighlighted(option.id)"
                         class="group flex cursor-pointer flex-col rounded-lg px-3 py-3 text-sm" role="option"
                         tabindex="-1">

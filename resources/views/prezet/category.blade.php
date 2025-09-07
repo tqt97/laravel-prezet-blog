@@ -7,16 +7,16 @@
     ])
 
     <x-prezet.alpine>
-        <div class="mx-auto max-w-5xl space-y-8">
+        <div class="mx-auto max-w-5xl space-y-8 mt-6">
             <div class="">
-                <li class="flex items-center dark:text-white">
+                {{-- <li class="flex items-center dark:text-white">
                     <span>
                         {{ Str::title(str_replace('-', ' ', $document->category))}}
                     </span>
-                </li>
+                </li> --}}
 
                 <h1
-                    class="mb-6 text-3xl !leading-snug font-bold sm:text-4xl md:mb-8 lg:text-5xl lg:!leading-tight dark:text-white">
+                    class="mb-6 text-2xl !leading-snug font-bold sm:text-4xl md:mb-8 lg:text-5xl lg:!leading-tight dark:text-white">
                     {{ $document->frontmatter->title }}
                 </h1>
             </div>
@@ -25,7 +25,8 @@
                 <div class="h-px w-full border-0 bg-zinc-200 dark:bg-zinc-700"></div>
             </div>
             <div class="-mx-8 sm:mx-0 col-span-12 xl:col-start-2 xl:col-span-10 lg:my-4">
-                <img src="{{ $document->frontmatter->image }}" alt="{{ $document->frontmatter->title }}" width="1120" height="595" loading="lazy" decoding="async"
+                <img src="{{ $document->frontmatter->image }}" alt="{{ $document->frontmatter->title }}" width="1120"
+                    height="595" loading="lazy" decoding="async"
                     class="h-auto max-h-[500px] w-full sm:rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800" />
             </div>
             {{-- Main Content --}}

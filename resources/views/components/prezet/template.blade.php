@@ -20,7 +20,7 @@
 
     <script>
         ;
-        (function() {
+        (function () {
             const stored = localStorage.getItem('theme')
             const prefersDark = window.matchMedia(
                 '(prefers-color-scheme: dark)'
@@ -35,13 +35,20 @@
     </script>
 </head>
 
-<body class="font-sans antialiased dark:bg-zinc-900">
+<body class="font-sans antialiased bg-gray-100 dark:bg-zinc-900">
     <div class="min-h-screen">
+        <x-top />
         <x-prezet.header />
-        <div class="container">
+        <div class="relative max-w-7xl mx-auto mb-12">
             {{ $slot }}
         </div>
     </div>
+    {{-- <footer
+        class="mt-8 border-t border-zinc-600 dark:border-zinc-700 bg-zinc-900 text-center text-base text-zinc-200">
+        <div class="flex items-center justify-center py-4">
+            © {{ date('Y') }} The Laravel Blog — An enchanted publication. All Rights Reserved.
+        </div>
+    </footer> --}}
     <x-scroll-to-top />
 </body>
 

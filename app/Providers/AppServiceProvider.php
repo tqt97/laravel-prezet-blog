@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             $pluralWordLabel = Str::plural('word', $wordCounts);
             $pluralTimeLabel = Str::plural('minute', $readTime);
 
-            return $wordCounts . ' ' . $pluralWordLabel . ' - ' . $readTime . ' ' . $pluralTimeLabel . ' to reading';
+            return $wordCounts.' '.$pluralWordLabel.' - '.$readTime.' '.$pluralTimeLabel.' to reading';
         });
     }
 }

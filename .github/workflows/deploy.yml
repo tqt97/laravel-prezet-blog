@@ -3,7 +3,7 @@ name: Deploy Laravel to Ubuntu
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:

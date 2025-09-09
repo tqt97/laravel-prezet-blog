@@ -1,5 +1,5 @@
 ---
-title: php?
+title: what is php?
 date: 2025-08-19
 category: php
 excerpt: Php

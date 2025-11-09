@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Prezet;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use Prezet\Prezet\Data\DocumentData;
 use Prezet\Prezet\Models\Document;
@@ -19,15 +20,14 @@ class IndexController
             ->where('content_type', 'article')
             ->where('draft', false);
 
-        // Get category counts (only non-null categories) from the base query (pre-filters)
-        $categoryCounts = (clone $query)
-            ->selectRaw('category, COUNT(*) as total')
-            ->whereNotNull('category')
-            ->groupBy('category')
-            ->pluck('total', 'category');
-
-        // Keep unique category list for compatibility
-        $categories = $categoryCounts->keys();
+        // Get category counts (only non-null categories) from the base query (pre-filters) and cache
+        $categoryCounts = Cache::remember('article_category_counts', now()->addDays(15), function () use ($query) {
+            return (clone $query)
+                ->selectRaw('category, COUNT(*) as total')
+                ->whereNotNull('category')
+                ->groupBy('category')
+                ->pluck('total', 'category');
+        });
 
         if ($category) {
             $query->where('category', $category);
@@ -44,9 +44,9 @@ class IndexController
             $query->where('frontmatter->author', $author);
         }
 
-        $currentAuthor = config('prezet.authors.'.$author);
-
-        $docs = $query->orderBy('created_at', 'desc')->get();
+        $docs = Cache::remember('articles', now()->addDays(15), function () use ($query) {
+            return $query->orderBy('created_at', 'desc')->get();
+        });
         $docsData = $docs->map(fn (Document $doc) => app(DocumentData::class)::fromModel($doc));
 
         // Group posts by year
@@ -59,9 +59,9 @@ class IndexController
             'paginator' => $docs,
             'currentTag' => $request->query('tag'),
             'currentCategory' => $request->query('category'),
-            'currentAuthor' => $currentAuthor,
+            'currentAuthor' => config('prezet.authors.'.$author),
             'postsByYear' => $postsByYear,
-            'categories' => $categories,
+            'categories' => $categoryCounts->keys(),
             'categoryCounts' => $categoryCounts,
         ]);
     }
